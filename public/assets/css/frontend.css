@@ -1,0 +1,19 @@
+/* UnionVote Frontend CSS */
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* Candidate item hover effects */
+.candidate-item.selected {
+    border-color: #1E40AF;
+    background-color: #EFF6FF;
+}
+
+/* Flash messages auto-hide */
+.flash-message {
+    animation: fadeOut 0.5s ease-in 4s forwards;
+}
+
+@keyframes fadeOut {
+    to { opacity: 0; height: 0; padding: 0; margin: 0; overflow: hidden; }
+}
