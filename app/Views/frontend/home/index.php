@@ -13,6 +13,12 @@ ob_start();
     <p class="text-gray-500 mt-2">Đoàn Khoa Công nghệ Thông tin - Trường Đại học Nha Trang</p>
 </div>
 
+<div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-8">
+    <p class="text-blue-800 text-sm text-center font-medium">
+        Hệ thống bỏ phiếu ẩn danh — Phiếu bầu không liên kết với thông tin cá nhân của người bỏ phiếu. Không ai có thể biết bạn đã bầu cho ai (token_hash không thể truy ngược tới email).
+    </p>
+</div>
+
 <?php if (empty($elections)): ?>
 <div class="text-center py-16">
     <p class="text-gray-400 text-lg">Hiện tại chưa có cuộc bình chọn nào.</p>
