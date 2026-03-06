@@ -27,7 +27,7 @@ class ExportService
         $sheet->setCellValue('A2', 'Nguyễn Văn A');
         $sheet->setCellValue('B2', '62CNTT1');
         $sheet->setCellValue('C2', '62130001');
-        $sheet->setCellValue('D2', 3.25);
+        $sheet->setCellValue('D2', 8.25);
         $sheet->setCellValue('E2', 85.5);
         $sheet->setCellValue('F2', 'UV BCH Đoàn khoa khoá trước');
 

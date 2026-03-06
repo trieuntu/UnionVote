@@ -29,8 +29,8 @@ class ImportService
             if (empty($fullName)) $errors[] = 'Họ và tên trống';
             if (empty($className)) $errors[] = 'Lớp trống';
             if (empty($studentId)) $errors[] = 'MSSV trống';
-            if ($gpa !== '' && (!is_numeric($gpa) || $gpa < 0 || $gpa > 4)) {
-                $errors[] = 'Điểm TB không hợp lệ (0-4)';
+            if ($gpa !== '' && (!is_numeric($gpa) || $gpa < 0 || $gpa > 10)) {
+                $errors[] = 'Điểm TB không hợp lệ (0-10)';
             }
             if ($conductScore !== '' && (!is_numeric($conductScore) || $conductScore < 0 || $conductScore > 100)) {
                 $errors[] = 'Điểm rèn luyện không hợp lệ (0-100)';

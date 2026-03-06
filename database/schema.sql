@@ -52,7 +52,7 @@ CREATE TABLE candidates (
     full_name VARCHAR(100) NOT NULL,
     class_name VARCHAR(50) NOT NULL,
     student_id VARCHAR(20) NOT NULL,
-    gpa DECIMAL(3,2) NULL COMMENT 'Điểm TB tích luỹ',
+    gpa DECIMAL(4,2) NULL COMMENT 'Điểm TB tích luỹ (hệ 10)',
     conduct_score DECIMAL(5,2) NULL COMMENT 'Điểm rèn luyện tích luỹ',
     bio TEXT NULL COMMENT 'Tóm tắt thông tin cá nhân',
     display_order INT NOT NULL DEFAULT 0,

@@ -63,6 +63,10 @@ $router->patch('/admin/elections/{id}/toggle-result', 'Admin\ElectionController@
 
 // Candidates
 $router->get('/admin/elections/{id}/candidates', 'Admin\CandidateController@index', ['AuthMiddleware']);
+$router->get('/admin/elections/{id}/candidates/create', 'Admin\CandidateController@create', ['AuthMiddleware']);
+$router->post('/admin/elections/{id}/candidates', 'Admin\CandidateController@store', ['CsrfMiddleware', 'AuthMiddleware']);
+$router->get('/admin/candidates/{id}/edit', 'Admin\CandidateController@edit', ['AuthMiddleware']);
+$router->put('/admin/candidates/{id}', 'Admin\CandidateController@update', ['CsrfMiddleware', 'AuthMiddleware']);
 $router->post('/admin/elections/{id}/candidates/import', 'Admin\CandidateController@import', ['CsrfMiddleware', 'AuthMiddleware']);
 $router->delete('/admin/candidates/{id}', 'Admin\CandidateController@destroy', ['CsrfMiddleware', 'AuthMiddleware']);
 $router->delete('/admin/elections/{id}/candidates', 'Admin\CandidateController@destroyAll', ['CsrfMiddleware', 'AuthMiddleware']);
@@ -70,6 +74,10 @@ $router->get('/admin/templates/candidates', 'Admin\CandidateController@downloadT
 
 // Voters
 $router->get('/admin/elections/{id}/voters', 'Admin\VoterController@index', ['AuthMiddleware']);
+$router->get('/admin/elections/{id}/voters/create', 'Admin\VoterController@create', ['AuthMiddleware']);
+$router->post('/admin/elections/{id}/voters', 'Admin\VoterController@store', ['CsrfMiddleware', 'AuthMiddleware']);
+$router->get('/admin/voters/{id}/edit', 'Admin\VoterController@edit', ['AuthMiddleware']);
+$router->put('/admin/voters/{id}', 'Admin\VoterController@update', ['CsrfMiddleware', 'AuthMiddleware']);
 $router->post('/admin/elections/{id}/voters/import', 'Admin\VoterController@import', ['CsrfMiddleware', 'AuthMiddleware']);
 $router->delete('/admin/voters/{id}', 'Admin\VoterController@destroy', ['CsrfMiddleware', 'AuthMiddleware']);
 $router->delete('/admin/elections/{id}/voters', 'Admin\VoterController@destroyAll', ['CsrfMiddleware', 'AuthMiddleware']);

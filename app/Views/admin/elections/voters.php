@@ -31,13 +31,16 @@ ob_start();
 <div class="bg-white rounded-lg shadow-sm border border-gray-200">
     <div class="px-5 py-4 border-b border-gray-200 flex items-center justify-between">
         <h2 class="text-lg font-semibold text-gray-800">Danh sách (<?= count($voters) ?>)</h2>
-        <?php if (!empty($voters)): ?>
-        <form action="<?= baseUrl('admin/elections/' . $election['id'] . '/voters') ?>" method="POST" onsubmit="return confirm('Xóa tất cả cử tri?')">
-            <?= CSRF::field() ?>
-            <input type="hidden" name="_method" value="DELETE">
-            <button type="submit" class="text-red-600 hover:text-red-800 text-sm font-medium">Xoá tất cả</button>
-        </form>
-        <?php endif; ?>
+        <div class="flex items-center gap-3">
+            <a href="<?= baseUrl('admin/elections/' . $election['id'] . '/voters/create') ?>" class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition text-sm font-medium">Thêm mới</a>
+            <?php if (!empty($voters)): ?>
+            <form action="<?= baseUrl('admin/elections/' . $election['id'] . '/voters') ?>" method="POST" onsubmit="return confirm('Xóa tất cả cử tri?')">
+                <?= CSRF::field() ?>
+                <input type="hidden" name="_method" value="DELETE">
+                <button type="submit" class="text-red-600 hover:text-red-800 text-sm font-medium">Xoá tất cả</button>
+            </form>
+            <?php endif; ?>
+        </div>
     </div>
     <div class="overflow-x-auto">
         <table class="w-full text-sm">
@@ -52,7 +55,7 @@ ob_start();
             </thead>
             <tbody class="divide-y divide-gray-200">
                 <?php if (empty($voters)): ?>
-                <tr><td colspan="5" class="px-4 py-8 text-center text-gray-400">Chưa có cử tri. Hãy import từ file Excel/CSV.</td></tr>
+                <tr><td colspan="5" class="px-4 py-8 text-center text-gray-400">Chưa có cử tri. Hãy import từ file Excel/CSV hoặc <a href="<?= baseUrl('admin/elections/' . $election['id'] . '/voters/create') ?>" class="text-blue-600 hover:text-blue-800">thêm trực tiếp</a>.</td></tr>
                 <?php else: ?>
                 <?php foreach ($voters as $i => $v): ?>
                 <tr class="hover:bg-gray-50">
@@ -66,7 +69,8 @@ ob_start();
                         <?php endif; ?>
                     </td>
                     <td class="px-4 py-3 text-gray-500 text-xs"><?= $v['voted_at'] ? e(\App\Core\formatDate($v['voted_at'])) : '-' ?></td>
-                    <td class="px-4 py-3 text-right">
+                    <td class="px-4 py-3 text-right whitespace-nowrap">
+                        <a href="<?= baseUrl('admin/voters/' . $v['id'] . '/edit') ?>" class="text-blue-600 hover:text-blue-800 text-xs font-medium mr-3">Sửa</a>
                         <form action="<?= baseUrl('admin/voters/' . $v['id']) ?>" method="POST" onsubmit="return confirm('Xóa cử tri này?')" class="inline">
                             <?= CSRF::field() ?>
                             <input type="hidden" name="_method" value="DELETE">

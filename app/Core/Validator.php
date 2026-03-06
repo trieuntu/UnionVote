@@ -64,8 +64,7 @@ class Validator
         $min = (int)($params[0] ?? 0);
         if (is_string($value) && mb_strlen($value) < $min) {
             $this->addError($field, "Trường {$field} phải có ít nhất {$min} ký tự.");
-        }
-        if (is_numeric($value) && $value < $min) {
+        } elseif (is_numeric($value) && !is_string($value) && $value < $min) {
             $this->addError($field, "Trường {$field} phải lớn hơn hoặc bằng {$min}.");
         }
     }
@@ -75,8 +74,7 @@ class Validator
         $max = (int)($params[0] ?? 0);
         if (is_string($value) && mb_strlen($value) > $max) {
             $this->addError($field, "Trường {$field} không được vượt quá {$max} ký tự.");
-        }
-        if (is_numeric($value) && $value > $max) {
+        } elseif (is_numeric($value) && !is_string($value) && $value > $max) {
             $this->addError($field, "Trường {$field} phải nhỏ hơn hoặc bằng {$max}.");
         }
     }
