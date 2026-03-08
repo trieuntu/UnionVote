@@ -35,12 +35,14 @@ class Candidate extends Model
 
     public function getWithVoteCount(int $electionId): array
     {
-        $sql = "SELECT c.*, COUNT(vd.id) AS vote_count
+        $sql = "SELECT c.*, COUNT(vd.id) AS vote_count,
+                       MAX(v.submitted_at) AS last_vote_at
                 FROM {$this->table} c
                 LEFT JOIN vote_details vd ON c.id = vd.candidate_id
+                LEFT JOIN votes v ON vd.vote_id = v.id
                 WHERE c.election_id = :eid
                 GROUP BY c.id
-                ORDER BY vote_count DESC, c.display_order ASC";
+                ORDER BY vote_count DESC, last_vote_at ASC, c.display_order ASC";
         return $this->query($sql, ['eid' => $electionId]);
     }
 }

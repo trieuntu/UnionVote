@@ -15,7 +15,7 @@ ob_start();
 
 <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-8">
     <p class="text-blue-800 text-sm text-center font-medium">
-        Hệ thống bỏ phiếu ẩn danh — Phiếu bầu không liên kết với thông tin cá nhân của người bỏ phiếu. Không ai có thể biết bạn đã bầu cho ai (token_hash không thể truy ngược tới email).
+        Hệ thống bỏ phiếu ẩn danh. Phiếu bầu không liên kết với thông tin cá nhân của người bỏ phiếu (token_hash không thể truy ngược tới email). Hệ thống ưu tiên theo thời gian bỏ phiếu sớm nếu cùng thứ hạng.
     </p>
 </div>
 
