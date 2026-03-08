@@ -19,7 +19,7 @@ ob_start();
         <?= CSRF::field() ?>
         <div>
             <label class="block text-sm text-gray-600 mb-1">File Excel/CSV</label>
-            <input type="file" name="file" accept=".xlsx,.xls,.csv" required
+            <input type="file" name="file" accept=".xlsx,.xls,.csv,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel,text/csv" required
                    class="text-sm text-gray-600 file:mr-3 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-medium file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100">
         </div>
         <button type="submit" class="bg-blue-800 text-white px-4 py-2 rounded-lg hover:bg-blue-900 transition text-sm font-medium">Import</button>
