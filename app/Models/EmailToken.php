@@ -27,7 +27,7 @@ class EmailToken extends Model
     public function countRecentTokens(int $electionId, int $voterId): int
     {
         $sql = "SELECT COUNT(*) FROM {$this->table}
-                WHERE election_id = :eid AND voter_id = :vid AND created_at > DATE_SUB(NOW(), INTERVAL 1 HOUR)";
+                WHERE election_id = :eid AND voter_id = :vid AND created_at > DATE_SUB(NOW(), INTERVAL 15 MINUTE)";
         $stmt = $this->getDb()->prepare($sql);
         $stmt->execute(['eid' => $electionId, 'vid' => $voterId]);
         return (int)$stmt->fetchColumn();
