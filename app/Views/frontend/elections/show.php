@@ -115,7 +115,7 @@ ob_start();
                 <p class="text-xs text-gray-400 mt-1">Sử dụng email @ntu.edu.vn của bạn</p>
             </div>
             <div class="flex gap-3">
-                <button type="submit" class="flex-1 bg-blue-800 text-white py-2 rounded-lg hover:bg-blue-900 transition font-medium">
+                <button type="submit" class="token-submit-btn flex-1 bg-blue-800 text-white py-2 rounded-lg hover:bg-blue-900 transition font-medium">
                     Gửi mã xác thực
                 </button>
                 <button type="button" onclick="document.getElementById('voteModal').classList.add('hidden')" class="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition text-gray-600">

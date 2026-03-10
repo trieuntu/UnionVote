@@ -35,7 +35,7 @@ ob_start();
                 <?= CSRF::field() ?>
                 <input type="hidden" name="election_id" value="<?= (int)$election['id'] ?>">
                 <input type="hidden" name="email" value="<?= e(\App\Core\Session::get('vote_email', '')) ?>">
-                <button type="submit" class="text-blue-600 hover:text-blue-800 text-sm font-medium">Gửi lại mã</button>
+                <button type="submit" class="token-submit-btn text-blue-600 hover:text-blue-800 text-sm font-medium">Gửi lại mã</button>
             </form>
         </div>
     </div>
