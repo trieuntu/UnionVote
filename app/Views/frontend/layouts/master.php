@@ -34,12 +34,12 @@ $flashError = Session::getFlash('error');
 
     <main class="flex-1 max-w-5xl mx-auto w-full px-4 py-8">
         <?php if ($flashSuccess): ?>
-            <div class="mb-4 p-4 bg-green-50 border border-green-200 text-green-700 rounded-lg">
+            <div class="flash-message mb-4 p-4 bg-green-50 border border-green-200 text-green-700 rounded-lg">
                 <?= e($flashSuccess) ?>
             </div>
         <?php endif; ?>
         <?php if ($flashError): ?>
-            <div class="mb-4 p-4 bg-red-50 border border-red-200 text-red-700 rounded-lg">
+            <div class="flash-message mb-4 p-4 bg-red-50 border border-red-200 text-red-700 rounded-lg">
                 <?= e($flashError) ?>
             </div>
         <?php endif; ?>

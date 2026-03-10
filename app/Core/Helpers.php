@@ -15,7 +15,9 @@ function baseUrl(string $path = ''): string
 
 function asset(string $path): string
 {
-    return App::baseUrl() . '/assets/' . ltrim($path, '/');
+    $filePath = dirname(__DIR__, 2) . '/public/assets/' . ltrim($path, '/');
+    $version = file_exists($filePath) ? filemtime($filePath) : time();
+    return App::baseUrl() . '/assets/' . ltrim($path, '/') . '?v=' . $version;
 }
 
 function old(string $key, string $default = ''): string
