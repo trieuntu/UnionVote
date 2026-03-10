@@ -5,6 +5,7 @@ use App\Core\Controller;
 use App\Core\Auth;
 use App\Core\CSRF;
 use App\Models\User;
+use App\Models\LoginLog;
 use function App\Core\baseUrl;
 
 class AuthController extends Controller
@@ -39,17 +40,20 @@ class AuthController extends Controller
         $user = $userModel->findByUsername($username);
 
         if (!$user || !password_verify($password, $user['password_hash'])) {
+            (new LoginLog())->log($username, 'failed', $user['id'] ?? null, 'Sai tên đăng nhập hoặc mật khẩu');
             $this->setFlash('error', 'Tên đăng nhập hoặc mật khẩu không đúng.');
             $this->redirect(baseUrl('admin/login'));
             return;
         }
 
         if (!$user['is_active']) {
+            (new LoginLog())->log($username, 'failed', $user['id'], 'Tài khoản bị vô hiệu hoá');
             $this->setFlash('error', 'Tài khoản đã bị vô hiệu hoá.');
             $this->redirect(baseUrl('admin/login'));
             return;
         }
 
+        (new LoginLog())->log($username, 'success', $user['id']);
         Auth::login($user);
         $userModel->updateLastLogin($user['id']);
 

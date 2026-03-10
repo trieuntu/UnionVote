@@ -51,6 +51,9 @@ $adminBase = baseUrl('admin');
             <a href="<?= $adminBase ?>/settings/mail" class="flex items-center px-4 py-3 text-blue-100 hover:bg-blue-800 transition">
                 <span>Cấu hình SMTP</span>
             </a>
+            <a href="<?= $adminBase ?>/logs" class="flex items-center px-4 py-3 text-blue-100 hover:bg-blue-800 transition">
+                <span>Nhật ký đăng nhập</span>
+            </a>
             <?php endif; ?>
         </nav>
     </aside>

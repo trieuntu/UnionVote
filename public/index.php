@@ -100,6 +100,9 @@ $router->get('/admin/settings/mail', 'Admin\SettingController@mail', ['AuthMiddl
 $router->post('/admin/settings/mail', 'Admin\SettingController@updateMail', ['CsrfMiddleware', 'AuthMiddleware', 'RoleMiddleware']);
 $router->post('/admin/settings/mail/test', 'Admin\SettingController@testMail', ['CsrfMiddleware', 'AuthMiddleware', 'RoleMiddleware']);
 
+// Login Logs (Admin only)
+$router->get('/admin/logs', 'Admin\LogController@index', ['AuthMiddleware', 'RoleMiddleware']);
+
 // ============================================================
 // DISPATCH
 // ============================================================
